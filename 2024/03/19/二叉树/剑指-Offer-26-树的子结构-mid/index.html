@@ -21,19 +21,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="题目链接  0337. 打家劫舍 III - 力扣   题目大意 小偷发现了一个新的可行窃的地区，这个地区的形状是一棵二叉树。这个地区只有一个入口，称为「根」。除了「根」之外，每栋房子只有一个「父」房子与之相连。如果两个直接相连的房子在同一天被打劫，房屋将自动报警。 现在给定这个代表地区房间的二叉树，每个节点值代表该房间所拥有的金额。要求计算在不触动警报的情况下，小偷一晚上能盗取的最高金额。">
+  <meta name="description" content="题目链接  剑指 Offer 26. 树的子结构 - 力扣   题目大意 给定两棵二叉树的根节点 A、B。 要求：判断 B 是不是 A 的子结构。（空树不是任意一棵树的子结构）。  B 是 A 的子结构：A 中有出现和 B 相同的结构和节点值。   解题思路 深度优先搜索。  先判断特例，如果 A、B 都为空树，则直接返回 False。 然后递归判断 A、B 是否相等。  如果 A、B 相等，则">
 <meta property="og:type" content="article">
-<meta property="og:title" content="打家劫舍III(mid)">
-<meta property="og:url" content="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII-mid/index.html">
+<meta property="og:title" content="剑指 Offer 26. 树的子结构 (mid)">
+<meta property="og:url" content="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%89%91%E6%8C%87-Offer-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84-mid/index.html">
 <meta property="og:site_name" content="YatesLaw">
-<meta property="og:description" content="题目链接  0337. 打家劫舍 III - 力扣   题目大意 小偷发现了一个新的可行窃的地区，这个地区的形状是一棵二叉树。这个地区只有一个入口，称为「根」。除了「根」之外，每栋房子只有一个「父」房子与之相连。如果两个直接相连的房子在同一天被打劫，房屋将自动报警。 现在给定这个代表地区房间的二叉树，每个节点值代表该房间所拥有的金额。要求计算在不触动警报的情况下，小偷一晚上能盗取的最高金额。">
+<meta property="og:description" content="题目链接  剑指 Offer 26. 树的子结构 - 力扣   题目大意 给定两棵二叉树的根节点 A、B。 要求：判断 B 是不是 A 的子结构。（空树不是任意一棵树的子结构）。  B 是 A 的子结构：A 中有出现和 B 相同的结构和节点值。   解题思路 深度优先搜索。  先判断特例，如果 A、B 都为空树，则直接返回 False。 然后递归判断 A、B 是否相等。  如果 A、B 相等，则">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-03-19T13:53:08.000Z">
-<meta property="article:modified_time" content="2024-03-19T13:54:10.989Z">
+<meta property="article:published_time" content="2024-03-19T14:16:42.000Z">
+<meta property="article:modified_time" content="2024-03-19T14:17:34.258Z">
 <meta property="article:author" content="yateslaw">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII-mid/">
+<link rel="canonical" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%89%91%E6%8C%87-Offer-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84-mid/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>打家劫舍III(mid) | YatesLaw</title>
+  <title>剑指 Offer 26. 树的子结构 (mid) | YatesLaw</title>
   
 
 
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII-mid/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%89%91%E6%8C%87-Offer-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84-mid/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -169,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          打家劫舍III(mid)
+          剑指 Offer 26. 树的子结构 (mid)
         </h1>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-03-19 21:53:08 / Modified: 21:54:10" itemprop="dateCreated datePublished" datetime="2024-03-19T21:53:08+08:00">2024-03-19</time>
+              <time title="Created: 2024-03-19 22:16:42 / Modified: 22:17:34" itemprop="dateCreated datePublished" datetime="2024-03-19T22:16:42+08:00">2024-03-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -209,31 +209,32 @@
       
         <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber-iii/">0337. 打家劫舍 III - 力扣</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/">剑指 Offer 26. 树的子结构 - 力扣</a></li>
 </ul>
 <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
-<p>小偷发现了一个新的可行窃的地区，这个地区的形状是一棵二叉树。这个地区只有一个入口，称为「根」。除了「根」之外，每栋房子只有一个「父」房子与之相连。如果两个直接相连的房子在同一天被打劫，房屋将自动报警。</p>
-<p>现在给定这个代表地区房间的二叉树，每个节点值代表该房间所拥有的金额。要求计算在不触动警报的情况下，小偷一晚上能盗取的最高金额。</p>
+<p>给定两棵二叉树的根节点 <code>A</code>、<code>B</code>。</p>
+<p>要求：判断 <code>B</code> 是不是 <code>A</code> 的子结构。（空树不是任意一棵树的子结构）。</p>
+<ul>
+<li><code>B</code> 是 <code>A</code> 的子结构：<code>A</code> 中有出现和 <code>B</code> 相同的结构和节点值。</li>
+</ul>
 <h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
-<p>树形动态规划问题。</p>
-<p>对于当前节点 <code>cur</code>，不能选择子节点，也不能选择父节点。所以对于一棵子树来说，有两种情况：</p>
+<p>深度优先搜索。</p>
 <ul>
-<li>选择了根节点</li>
-<li>没有选择根节点</li>
-</ul>
-<h3 id="1-选择根节点"><a class="markdownIt-Anchor" href="#1-选择根节点"></a> 1. 选择根节点</h3>
-<p>如果选择了根节点，则不能再选择左右儿子节点，这种情况下的最大值为：当前节点 + 左子树不选择根节点 + 右子树不选择根节点。</p>
-<h3 id="2-不选择根节点"><a class="markdownIt-Anchor" href="#2-不选择根节点"></a> 2. 不选择根节点</h3>
-<p>如果不选择根节点，则可以选择左右儿子节点，共四种可能：</p>
+<li>先判断特例，如果 <code>A</code>、<code>B</code> 都为空树，则直接返回 <code>False</code>。</li>
+<li>然后递归判断 <code>A</code>、<code>B</code> 是否相等。
 <ul>
-<li>左子树选择根节点 + 右子树选择根节点</li>
-<li>左子树选择根节点 + 右子树不选根节点</li>
-<li>左子树不选根节点 + 右子树选择根节点</li>
-<li>左子树不选根节点 + 右子树不选根节点</li>
+<li>如果 <code>A</code>、<code>B</code> 相等，则返回 <code>True</code>。</li>
+<li>如果 <code>A</code>、<code>B</code> 不相等，则递归判断 <code>B</code> 是否是  <code>A</code> 的左子树的子结构，或者 <code>B</code> 是否是 <code>A</code> 的右子树的子结构，如果有一种满足，则返回 <code>True</code>，如果都不满足，则返回 <code>False</code>。</li>
 </ul>
-<p>选择其中最大值。</p>
-<p>上述描述中，当前节点的选择来自于子节点信息的选择，然后逐层向上，直到根节点。所以我们使用「后序遍历」的方式进行递归遍历。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numTrees</span><span class="params">(n <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    res := <span class="built_in">make</span>([]<span class="type">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    res[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    res[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;=i; j ++ &#123;</span><br><span class="line">            res[i] += res[j<span class="number">-1</span>] * res[i - j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>递归判断 <code>A</code>、<code>B</code> 是否相等的具体方法如下：</p>
+<ul>
+<li>如果 <code>B</code> 为空树，则直接返回 <code>False</code>，因为空树不是任意一棵树的子结构。</li>
+<li>如果 <code>A</code> 为空树或者 <code>A</code> 节点的值不等于 <code>B</code> 节点的值，则返回 <code>False</code>。</li>
+<li>如果 <code>A</code>、<code>B</code> 都不为空，且节点值相同，则递归判断 <code>A</code> 的左子树和 <code>B</code> 的左子树是否相等，判断 <code>A</code> 的右子树和 <code>B</code> 的右子树是否相等。如果都相等，则返回 <code>True</code>，否则返回 <code>False</code>。</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    参考:数据结构与算法的题解比较好懂</span></span><br><span class="line"><span class="comment">    死死记住isSubStructure()的定义:判断B是否为A的子结构</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubStructure</span><span class="params">(A *TreeNode, B *TreeNode)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="comment">// 若A与B其中一个为空,立即返回false</span></span><br><span class="line">    <span class="keyword">if</span> A == <span class="literal">nil</span> || B == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// B为A的子结构有3种情况,满足任意一种即可:</span></span><br><span class="line">    <span class="comment">// 1.B的子结构起点为A的根节点,此时结果为recur(A,B)</span></span><br><span class="line">    <span class="comment">// 2.B的子结构起点隐藏在A的左子树中,而不是直接为A的根节点,此时结果为isSubStructure(A.left, B)</span></span><br><span class="line">    <span class="comment">// 3.B的子结构起点隐藏在A的右子树中,此时结果为isSubStructure(A.right, B)</span></span><br><span class="line">    <span class="keyword">return</span> recur(A, B) || isSubStructure(A.Left, B) || isSubStructure(A.Right, B)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">    判断B是否为A的子结构,其中B子结构的起点为A的根节点</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">recur</span><span class="params">(A *TreeNode, B *TreeNode)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="comment">// 若B走完了,说明查找完毕,B为A的子结构</span></span><br><span class="line">    <span class="keyword">if</span> B == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若B不为空并且A为空或者A与B的值不相等,直接可以判断B不是A的子结构</span></span><br><span class="line">    <span class="keyword">if</span> A == <span class="literal">nil</span> || A.Val != B.Val&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当A与B当前节点值相等,若要判断B为A的子结构</span></span><br><span class="line">    <span class="comment">// 还需要判断B的左子树是否为A左子树的子结构 &amp;&amp; B的右子树是否为A右子树的子结构</span></span><br><span class="line">    <span class="comment">// 若两者都满足就说明B是A的子结构,并且该子结构以A根节点为起点</span></span><br><span class="line">    <span class="keyword">return</span> recur(A.Left, B.Left) &amp;&amp; recur(A.Right, B.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -248,13 +249,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/03/18/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" rel="prev" title="二叉树的最近公共祖先(mid)">
-      <i class="fa fa-chevron-left"></i> 二叉树的最近公共祖先(mid)
+    <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91-%EF%BC%88mid%EF%BC%89/" rel="prev" title="把二叉搜索树转换为累加树(mid)">
+      <i class="fa fa-chevron-left"></i> 把二叉搜索树转换为累加树(mid)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91-mid/" rel="next" title="从前序与中序遍历序列构造二叉树 (mid)">
-      从前序与中序遍历序列构造二叉树 (mid) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -313,7 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text"> 题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text"> 题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text"> 解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%80%89%E6%8B%A9%E6%A0%B9%E8%8A%82%E7%82%B9"><span class="nav-number">3.1.</span> <span class="nav-text"> 1. 选择根节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8D%E9%80%89%E6%8B%A9%E6%A0%B9%E8%8A%82%E7%82%B9"><span class="nav-number">3.2.</span> <span class="nav-text"> 2. 不选择根节点</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text"> 题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text"> 题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text"> 解题思路</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

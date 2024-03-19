@@ -21,21 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="二叉树层次遍历  题目大意 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。  思路：队列遍历  首先根元素入队。 如果队列不为空，则得到当前队列的长度n, 依次从队列拉出n个元素，并将元素的左右子树节点放入队列，重复迭代直到队列为空。  12345678910111213141516171819202122232425&#x2F;&#x2F; 时间复杂度 O（N）， 空间">
+  <meta name="description" content="题目链接  0094. 二叉树的中序遍历 - 力扣   题目大意 描述：给定一个二叉树的根节点 root。 要求：返回该二叉树的中序遍历结果。 说明：  树中节点数目在范围 [0,100][0, 100][0,100] 内。 −100≤Node.val≤100-100 \le Node.val \le 100−100≤Node.val≤100。  示例：  示例 1：   12输入：root &#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树的层次遍历(mid)">
-<meta property="og:url" content="http://example.com/2024/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/index.html">
+<meta property="og:title" content="二叉树的中序遍历(easy)">
+<meta property="og:url" content="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86-easy/index.html">
 <meta property="og:site_name" content="YatesLaw">
-<meta property="og:description" content="二叉树层次遍历  题目大意 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。  思路：队列遍历  首先根元素入队。 如果队列不为空，则得到当前队列的长度n, 依次从队列拉出n个元素，并将元素的左右子树节点放入队列，重复迭代直到队列为空。  12345678910111213141516171819202122232425&#x2F;&#x2F; 时间复杂度 O（N）， 空间">
+<meta property="og:description" content="题目链接  0094. 二叉树的中序遍历 - 力扣   题目大意 描述：给定一个二叉树的根节点 root。 要求：返回该二叉树的中序遍历结果。 说明：  树中节点数目在范围 [0,100][0, 100][0,100] 内。 −100≤Node.val≤100-100 \le Node.val \le 100−100≤Node.val≤100。  示例：  示例 1：   12输入：root &#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://code-thinking-1253855093.file.myqcloud.com/pics/20210203144842988.png">
-<meta property="article:published_time" content="2024-03-17T12:43:41.000Z">
-<meta property="article:modified_time" content="2024-03-18T15:50:12.193Z">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
+<meta property="article:published_time" content="2024-03-19T14:13:11.000Z">
+<meta property="article:modified_time" content="2024-03-19T14:13:58.754Z">
 <meta property="article:author" content="yateslaw">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://code-thinking-1253855093.file.myqcloud.com/pics/20210203144842988.png">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
 
-<link rel="canonical" href="http://example.com/2024/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">
+<link rel="canonical" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86-easy/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>二叉树的层次遍历(mid) | YatesLaw</title>
+  <title>二叉树的中序遍历(easy) | YatesLaw</title>
   
 
 
@@ -158,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86-easy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -171,7 +171,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          二叉树的层次遍历(mid)
+          二叉树的中序遍历(easy)
         </h1>
 
         <div class="post-meta">
@@ -180,16 +180,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2024-03-17 20:43:41" itemprop="dateCreated datePublished" datetime="2024-03-17T20:43:41+08:00">2024-03-17</time>
+              <time title="Created: 2024-03-19 22:13:11 / Modified: 22:13:58" itemprop="dateCreated datePublished" datetime="2024-03-19T22:13:11+08:00">2024-03-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-18 23:50:12" itemprop="dateModified" datetime="2024-03-18T23:50:12+08:00">2024-03-18</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -215,17 +209,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">二叉树层次遍历</a></p>
+        <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-tree-inorder-traversal/">0094. 二叉树的中序遍历 - 力扣</a></li>
+</ul>
 <h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
-<p>给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。</p>
-<p><img src="https://code-thinking-1253855093.file.myqcloud.com/pics/20210203144842988.png" alt="102.二叉树的层序遍历" /></p>
-<p>思路：队列遍历</p>
+<p><strong>描述</strong>：给定一个二叉树的根节点 <code>root</code>。</p>
+<p><strong>要求</strong>：返回该二叉树的中序遍历结果。</p>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>树中节点数目在范围 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mn>0</mn><mn>0</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[0, 100]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mclose">]</span></span></span></span> 内。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn><mn>0</mn><mn>0</mn><mo>≤</mo><mi>N</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo>≤</mo><mn>1</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">-100 \le Node.val \le 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit">o</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>示例 1：</li>
+</ul>
+<p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg" alt="img" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [<span class="number">1</span>,null,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例 2：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
+<h3 id="思路-1递归遍历"><a class="markdownIt-Anchor" href="#思路-1递归遍历"></a> 思路 1：递归遍历</h3>
+<p>二叉树的前序遍历递归实现步骤为：</p>
 <ol>
-<li>首先根元素入队。</li>
-<li>如果队列不为空，则得到当前队列的长度n, 依次从队列拉出n个元素，并将元素的左右子树节点放入队列，重复迭代直到队列为空。</li>
+<li>判断二叉树是否为空，为空则直接返回。</li>
+<li>先访问根节点。</li>
+<li>然后递归遍历左子树。</li>
+<li>最后递归遍历右子树。</li>
 </ol>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 时间复杂度 O（N）， 空间复杂度 O（N）</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">levelOrder</span><span class="params">(root *TreeNode)</span></span> [][]<span class="type">int</span> &#123;</span><br><span class="line">    ret := <span class="built_in">make</span>([][]<span class="type">int</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    &#125;</span><br><span class="line">    q := []*TreeNode&#123;root&#125;</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">len</span>(q) &gt; <span class="number">0</span> &#123;</span><br><span class="line">        n := <span class="built_in">len</span>(q)</span><br><span class="line">        tempLevel := <span class="built_in">make</span>([]<span class="type">int</span>, n)</span><br><span class="line">        <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ &#123;</span><br><span class="line">            node := q[i]</span><br><span class="line">            tempLevel[i] = node.Val</span><br><span class="line">            <span class="keyword">if</span> node.Left != <span class="literal">nil</span> &#123;</span><br><span class="line">                q = <span class="built_in">append</span>(q, node.Left)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> node.Right != <span class="literal">nil</span> &#123;</span><br><span class="line">                q = <span class="built_in">append</span>(q, node.Right)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        q = q[n:]</span><br><span class="line">		ret = <span class="built_in">append</span>(ret, tempLevel)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="built_in">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        inorderTraversal(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     public void inorderTraversal(TreeNode root,  List&lt;Integer&gt; res) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        inorderTraversal(root.left, res);</span><br><span class="line">        res.add(root.val);</span><br><span class="line">        inorderTraversal(root.right, res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -239,10 +254,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2024/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E9%81%8D%E5%8E%86/" rel="next" title="二叉树的锯齿形层序遍历(mid)">
-      二叉树的锯齿形层序遍历(mid) <i class="fa fa-chevron-right"></i>
+    <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-mid/" rel="prev" title="验证二叉搜索树 (mid">
+      <i class="fa fa-chevron-left"></i> 验证二叉搜索树 (mid
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91-%EF%BC%88mid%EF%BC%89/" rel="next" title="把二叉搜索树转换为累加树(mid)">
+      把二叉搜索树转换为累加树(mid) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -302,7 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">1.</span> <span class="nav-text"> 题目大意</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text"> 题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text"> 题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text"> 解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86"><span class="nav-number">3.1.</span> <span class="nav-text"> 思路 1：递归遍历</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
