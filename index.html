@@ -249,7 +249,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91-%EF%BC%88mid%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -263,7 +263,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91-%EF%BC%88mid%EF%BC%89/" class="post-title-link" itemprop="url">把二叉搜索树转换为累加树(mid)</a>
+            <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/" class="post-title-link" itemprop="url">把二叉搜索树转换为累加树(mid)</a>
         </h2>
 
         <div class="post-meta">
@@ -272,10 +272,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-03-19 22:14:58 / Modified: 22:15:12" itemprop="dateCreated datePublished" datetime="2024-03-19T22:14:58+08:00">2024-03-19</time>
+              <time title="Created: 2024-03-19 22:14:58" itemprop="dateCreated datePublished" datetime="2024-03-19T22:14:58+08:00">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:02" itemprop="dateModified" datetime="2024-03-20T21:17:02+08:00">2024-03-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -301,10 +307,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-binary-search-trees//">题目</a></p>
-<p><strong>思路：</strong></p>
-<p>假设n个节点存在二叉排序树的个数是G(n)，1为根节点，2为根节点，…，n为根节点，当1为根节点时，其左子树节点个数为0，右子树节点个数为n-1，同理当2为根节点时，其左子树节点个数为1，右子树节点为n-2，所以可得G(n) = G(0)<em>G(n-1)+G(1)</em>(n-2)+…+G(n-1)*G(0)</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numTrees</span><span class="params">(n <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    res := <span class="built_in">make</span>([]<span class="type">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    res[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    res[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;=i; j ++ &#123;</span><br><span class="line">            res[i] += res[j<span class="number">-1</span>] * res[i - j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-bst-to-greater-tree/">0538. 把二叉搜索树转换为累加树 - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p>给定一棵二叉搜索树（BST）的根节点，且二叉搜索树的节点值各不相同。要求将其转化为「累加树」，使其每个节点 <code>node</code> 的新值等于原树中大于或等于 <code>node.val</code> 的值之和。</p>
+<p>二叉搜索树的定义：</p>
+<ul>
+<li>若左子树不为空，则左子树上所有节点值均小于它的根节点值；</li>
+<li>若右子树不为空，则右子树上所有节点值均大于它的根节点值；</li>
+<li>任意节点的左、右子树也分别为二叉搜索树。</li>
+</ul>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
+<p>题目要求将每个节点的值修改为原来的节点值加上大于它的节点值之和。已知二叉搜索树的中序遍历可以得到一个升序数组。</p>
+<p>题目就可以变为：修改升序数组中每个节点值为末尾元素累加和。由于末尾元素累加和的求和过程和遍历顺序相反，所以我们可以考虑换种思路。</p>
+<p>二叉搜索树的中序遍历顺序为：左 -&gt; 根 -&gt; 右，从而可以得到一个升序数组，那么我们将左右反着遍历，即顺序为：右 -&gt; 根 -&gt; 左，就可以得到一个降序数组，这样就可以在遍历的同时求前缀和。</p>
+<p>当然我们在计算前缀和的时候，需要用到前一个节点的值，所以需要用变量 <code>pre</code> 存储前一节点的值。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">convertBST</span><span class="params">(root *TreeNode)</span></span> *TreeNode &#123;</span><br><span class="line">    sum := <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> dfs <span class="function"><span class="keyword">func</span><span class="params">(*TreeNode)</span></span></span><br><span class="line">    dfs = <span class="function"><span class="keyword">func</span><span class="params">(node *TreeNode)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">            dfs(node.Right)</span><br><span class="line">            sum += node.Val</span><br><span class="line">            node.Val = sum</span><br><span class="line">            dfs(node.Left)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root)</span><br><span class="line">    <span class="keyword">return</span> root</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -346,10 +366,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-03-19 22:13:11 / Modified: 22:13:58" itemprop="dateCreated datePublished" datetime="2024-03-19T22:13:11+08:00">2024-03-19</time>
+              <time title="Created: 2024-03-19 22:13:11" itemprop="dateCreated datePublished" datetime="2024-03-19T22:13:11+08:00">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:31" itemprop="dateModified" datetime="2024-03-20T21:17:31+08:00">2024-03-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -406,7 +432,12 @@
 <li>然后递归遍历左子树。</li>
 <li>最后递归遍历右子树。</li>
 </ol>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    List&lt;Integer&gt; res = <span class="built_in">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    public List&lt;Integer&gt; inorderTraversal(TreeNode root) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        inorderTraversal(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     public void inorderTraversal(TreeNode root,  List&lt;Integer&gt; res) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        inorderTraversal(root.left, res);</span><br><span class="line">        res.add(root.val);</span><br><span class="line">        inorderTraversal(root.right, res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="思路-1复杂度分析"><a class="markdownIt-Anchor" href="#思路-1复杂度分析"></a> 思路 1：复杂度分析</h3>
+<ul>
+<li><strong>时间复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 是二叉树的节点数目。</li>
+<li><strong>空间复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">inorderTraversal</span><span class="params">(root *TreeNode)</span></span> (res []<span class="type">int</span>) &#123;</span><br><span class="line">   <span class="keyword">var</span> inorder <span class="function"><span class="keyword">func</span><span class="params">(node *TreeNode)</span></span></span><br><span class="line">	inorder = <span class="function"><span class="keyword">func</span><span class="params">(node *TreeNode)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> node == <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		inorder(node.Left)</span><br><span class="line">		res = <span class="built_in">append</span>(res, node.Val)</span><br><span class="line">		inorder(node.Right)</span><br><span class="line">	&#125;</span><br><span class="line">	inorder(root)</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -456,7 +487,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 21:08:25" itemprop="dateModified" datetime="2024-03-20T21:08:25+08:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 21:17:53" itemprop="dateModified" datetime="2024-03-20T21:17:53+08:00">2024-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -573,10 +604,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-03-19 22:02:39 / Modified: 22:05:58" itemprop="dateCreated datePublished" datetime="2024-03-19T22:02:39+08:00">2024-03-19</time>
+              <time title="Created: 2024-03-19 22:02:39" itemprop="dateCreated datePublished" datetime="2024-03-19T22:02:39+08:00">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:33" itemprop="dateModified" datetime="2024-03-20T21:17:33+08:00">2024-03-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -775,10 +812,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-03-19 21:58:45 / Modified: 22:00:24" itemprop="dateCreated datePublished" datetime="2024-03-19T21:58:45+08:00">2024-03-19</time>
+              <time title="Created: 2024-03-19 21:58:45" itemprop="dateCreated datePublished" datetime="2024-03-19T21:58:45+08:00">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:52" itemprop="dateModified" datetime="2024-03-20T21:17:52+08:00">2024-03-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -831,8 +874,9 @@
 <li>递归遍历二叉树，并累加答案值。</li>
 <li>恢复哈希表「当前前缀和的节点数量」，返回答案。</li>
 </ul>
+<h3 id="前缀和解法"><a class="markdownIt-Anchor" href="#前缀和解法"></a> 前缀和解法</h3>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pathSum</span><span class="params">(root *TreeNode, targetSum <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    ret := rootSum(root, targetSum)</span><br><span class="line">    ret += pathSum(root.Left, targetSum)</span><br><span class="line">    ret += pathSum(root.Right, targetSum)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义 rootSum(p,val)表示以节点 p 为起点向下且满足路径总和为 val 的路径数目。</span></span><br><span class="line"><span class="comment">//我们对二叉树上每个节点 p 求出 rootSum(p,targetSum)，然后对这些路径数目求和即为返回结果。</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rootSum</span><span class="params">(node *TreeNode, targetSum <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">   <span class="keyword">if</span> node == <span class="literal">nil</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">   &#125;</span><br><span class="line">   ret := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> node.Val == targetSum &#123;</span><br><span class="line">       ret++</span><br><span class="line">   &#125;</span><br><span class="line">   ret += rootSum(node.Left, targetSum - node.Val)</span><br><span class="line">   ret += rootSum(node.Right, targetSum - node.Val)</span><br><span class="line">   <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="递归解法"><a class="markdownIt-Anchor" href="#递归解法"></a> 递归解法</h2>
+<h3 id="递归解法"><a class="markdownIt-Anchor" href="#递归解法"></a> 递归解法</h3>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public <span class="type">int</span> pathSum(TreeNode root, <span class="type">int</span> targetSum) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 从根节点出发，路径=targetSum的路径数</span></span><br><span class="line">        <span class="type">int</span> ret = rootSum(root, targetSum);</span><br><span class="line">        <span class="comment">// 从左子树节点出发，路径=targetSum的路径数</span></span><br><span class="line">        ret += pathSum(root.left, targetSum);</span><br><span class="line">        <span class="comment">// 从右子树节点出发，路径=targetSum的路径数</span></span><br><span class="line">        ret += pathSum(root.right, targetSum);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="type">int</span> rootSum(TreeNode root, <span class="type">int</span> targetSum) &#123;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> val = root.val;</span><br><span class="line">        <span class="keyword">if</span> (val == targetSum) &#123;</span><br><span class="line">            ret++;</span><br><span class="line">        &#125;</span><br><span class="line">        ret += rootSum(root.left, targetSum - val);</span><br><span class="line">        ret += rootSum(root.right, targetSum - val);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
@@ -878,6 +922,13 @@
 
               <time title="Created: 2024-03-19 21:57:07" itemprop="dateCreated datePublished" datetime="2024-03-19T21:57:07+08:00">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:26" itemprop="dateModified" datetime="2024-03-20T21:17:26+08:00">2024-03-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -903,10 +954,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-binary-search-trees//">题目</a></p>
-<p><strong>思路：</strong></p>
-<p>假设n个节点存在二叉排序树的个数是G(n)，1为根节点，2为根节点，…，n为根节点，当1为根节点时，其左子树节点个数为0，右子树节点个数为n-1，同理当2为根节点时，其左子树节点个数为1，右子树节点为n-2，所以可得G(n) = G(0)<em>G(n-1)+G(1)</em>(n-2)+…+G(n-1)*G(0)</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numTrees</span><span class="params">(n <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    res := <span class="built_in">make</span>([]<span class="type">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    res[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    res[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;=i; j ++ &#123;</span><br><span class="line">            res[i] += res[j<span class="number">-1</span>] * res[i - j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/implement-trie-prefix-tree/">0208. 实现 Trie (前缀树) - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p><strong>要求</strong>：实现前缀树数据结构的相关类 <code>Trie</code> 类。</p>
+<p><code>Trie</code> 类：</p>
+<ul>
+<li><code>Trie()</code> 初始化前缀树对象。</li>
+<li><code>void insert(String word)</code> 向前缀树中插入字符串 <code>word</code>。</li>
+<li><code>boolean search(String word)</code> 如果字符串 <code>word</code> 在前缀树中，返回 <code>True</code>（即，在检索之前已经插入）；否则，返回 <code>False</code>。</li>
+<li><code>boolean startsWith(String prefix)</code> 如果之前已经插入的字符串 <code>word</code> 的前缀之一为 <code>prefix</code>，返回 <code>True</code>；否则，返回 <code>False</code>。</li>
+</ul>
+<p><strong>说明</strong>：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>w</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo separator="true">,</mo><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>≤</mo><mn>2</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1 \le word.length, prefix.length \le 2000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">d</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mpunct">,</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">i</span><span class="mord mathit">x</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mrel">≤</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>。</li>
+<li><code>word</code> 和 <code>prefix</code> 仅由小写英文字母组成。</li>
+<li><code>insert</code>、<code>search</code> 和 <code>startsWith</code> 调用次数 <strong>总计</strong> 不超过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">3 * 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span><span class="mbin">∗</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 次。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>示例 1：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[<span class="string">&quot;Trie&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;search&quot;</span>, <span class="string">&quot;search&quot;</span>, <span class="string">&quot;startsWith&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;search&quot;</span>]</span><br><span class="line">[[], [<span class="string">&quot;apple&quot;</span>], [<span class="string">&quot;apple&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>]]</span><br><span class="line">输出：</span><br><span class="line">[null, null, true, false, true, null, true]</span><br><span class="line"></span><br><span class="line">解释：</span><br><span class="line">Trie trie = new Trie();</span><br><span class="line">trie.insert(<span class="string">&quot;apple&quot;</span>);</span><br><span class="line">trie.search(<span class="string">&quot;apple&quot;</span>);   // 返回 <span class="literal">True</span></span><br><span class="line">trie.search(<span class="string">&quot;app&quot;</span>);     // 返回 <span class="literal">False</span></span><br><span class="line">trie.startsWith(<span class="string">&quot;app&quot;</span>); // 返回 <span class="literal">True</span></span><br><span class="line">trie.insert(<span class="string">&quot;app&quot;</span>);</span><br><span class="line">trie.search(<span class="string">&quot;app&quot;</span>);     // 返回 <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
+<h3 id="思路-1前缀树字典树"><a class="markdownIt-Anchor" href="#思路-1前缀树字典树"></a> 思路 1：前缀树（字典树）</h3>
+<p>前缀树（字典树）是一棵多叉树，其中每个节点包含指向子节点的指针数组 <code>children</code>，以及布尔变量 <code>isEnd</code>。<code>children</code> 用于存储当前字符节点，一般长度为所含字符种类个数，也可以使用哈希表代替指针数组。<code>isEnd</code> 用于判断该节点是否为字符串的结尾。</p>
+<p>下面依次讲解插入、查找前缀的具体步骤：</p>
+<p><strong>插入字符串</strong>：</p>
+<ul>
+<li>从根节点开始插入字符串。对于待插入的字符，有两种情况：
+<ul>
+<li>如果该字符对应的节点存在，则沿着指针移动到子节点，继续处理下一个字符。</li>
+<li>如果该字符对应的节点不存在，则创建一个新的节点，保存在 <code>children</code> 中对应位置上，然后沿着指针移动到子节点，继续处理下一个字符。</li>
+</ul>
+</li>
+<li>重复上述步骤，直到最后一个字符，然后将该节点标记为字符串的结尾。</li>
+</ul>
+<p><strong>查找前缀</strong>：</p>
+<ul>
+<li>从根节点开始查找前缀，对于待查找的字符，有两种情况：
+<ul>
+<li>如果该字符对应的节点存在，则沿着指针移动到子节点，继续查找下一个字符。</li>
+<li>如果该字符对应的节点不存在，则说明字典树中不包含该前缀，直接返回空指针。</li>
+</ul>
+</li>
+<li>重复上述步骤，直到最后一个字符搜索完毕，则说明字典树中存在该前缀。</li>
+</ul>
+<h3 id="思路-1复杂度分析"><a class="markdownIt-Anchor" href="#思路-1复杂度分析"></a> 思路 1：复杂度分析</h3>
+<ul>
+<li><strong>时间复杂度</strong>：初始化为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>。插入操作、查找操作的时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi mathvariant="normal">∣</mi><mi>S</mi><mi mathvariant="normal">∣</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(|S|)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathrm">∣</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mord mathrm">∣</span><span class="mclose">)</span></span></span></span>。其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>S</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|S|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">∣</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mord mathrm">∣</span></span></span></span> 是每次插入或查找字符串的长度。</li>
+<li><strong>空间复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi mathvariant="normal">∣</mi><mi>T</mi><mi mathvariant="normal">∣</mi><mo>×</mo><mo>∑</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(|T| \times \sum)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathrm">∣</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mord mathrm">∣</span><span class="mbin">×</span><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="mclose">)</span></span></span></span>。其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>T</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|T|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">∣</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mord mathrm">∣</span></span></span></span> 是所有插入字符串的长度之和，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo></mrow><annotation encoding="application/x-tex">\sum</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="base textstyle uncramped"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span></span></span></span> 是字符集的大小。</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Trie <span class="keyword">struct</span> &#123;</span><br><span class="line">    children [<span class="number">26</span>]*Trie</span><br><span class="line">    isEnd <span class="type">bool</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">()</span></span> Trie &#123;</span><br><span class="line">    <span class="keyword">return</span> Trie&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span></span> Insert(word <span class="type">string</span>)  &#123;</span><br><span class="line">    node := t</span><br><span class="line">    <span class="keyword">for</span> _, ch := <span class="keyword">range</span> word &#123;</span><br><span class="line">        ch -= <span class="string">&#x27;a&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> node.children[ch] == <span class="literal">nil</span> &#123;</span><br><span class="line">            node.children[ch] = &amp;Trie&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        node = node.children[ch]</span><br><span class="line">    &#125;</span><br><span class="line">    node.isEnd = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span></span> Search(word <span class="type">string</span>) <span class="type">bool</span> &#123;</span><br><span class="line">    node := t.SearchPrefix(word)</span><br><span class="line">    <span class="keyword">return</span> node != <span class="literal">nil</span> &amp;&amp; node.isEnd</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span></span> SearchPrefix(prefix <span class="type">string</span>)  *Trie &#123;</span><br><span class="line">     node := t</span><br><span class="line">     <span class="keyword">for</span> _, ch := <span class="keyword">range</span> prefix &#123;</span><br><span class="line">        ch -= <span class="string">&#x27;a&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> node.children[ch] == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        node = node.children[ch]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span></span> StartsWith(prefix <span class="type">string</span>) <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> t.SearchPrefix(prefix) != <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -951,6 +1052,13 @@
 
               <time title="Created: 2024-03-19 21:54:58" itemprop="dateCreated datePublished" datetime="2024-03-19T21:54:58+08:00">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:39" itemprop="dateModified" datetime="2024-03-20T21:17:39+08:00">2024-03-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -976,10 +1084,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-binary-search-trees//">题目</a></p>
-<p><strong>思路：</strong></p>
-<p>假设n个节点存在二叉排序树的个数是G(n)，1为根节点，2为根节点，…，n为根节点，当1为根节点时，其左子树节点个数为0，右子树节点个数为n-1，同理当2为根节点时，其左子树节点个数为1，右子树节点为n-2，所以可得G(n) = G(0)<em>G(n-1)+G(1)</em>(n-2)+…+G(n-1)*G(0)</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numTrees</span><span class="params">(n <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    res := <span class="built_in">make</span>([]<span class="type">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    res[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    res[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;=i; j ++ &#123;</span><br><span class="line">            res[i] += res[j<span class="number">-1</span>] * res[i - j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">0105. 从前序与中序遍历序列构造二叉树 - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p><strong>描述</strong>：给定一棵二叉树的前序遍历结果 <code>preorder</code> 和中序遍历结果 <code>inorder</code>。</p>
+<p><strong>要求</strong>：构造出该二叉树并返回其根节点。</p>
+<p><strong>说明</strong>：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>p</mi><mi>r</mi><mi>e</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>≤</mo><mn>3</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1 \le preorder.length \le 3000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">e</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mrel">≤</span><span class="mord mathrm">3</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>n</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>=</mo><mo>=</mo><mi>p</mi><mi>r</mi><mi>e</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">inorder.length == preorder.length</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mrel">=</span><span class="mrel">=</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">e</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">t</span><span class="mord mathit">h</span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>3</mn><mn>0</mn><mn>0</mn><mn>0</mn><mo>≤</mo><mi>p</mi><mi>r</mi><mi>e</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo separator="true">,</mo><mi>i</mi><mi>n</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi>e</mi><mi>r</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>≤</mo><mn>3</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">-3000 \le preorder[i], inorder[i] \le 3000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">3</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">e</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mrel">≤</span><span class="mord mathrm">3</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>。</li>
+<li><code>preorder</code> 和 <code>inorder</code> 均无重复元素。</li>
+<li><code>inorder</code> 均出现在 <code>preorder</code>。</li>
+<li><code>preorder</code> 保证为二叉树的前序遍历序列。</li>
+<li><code>inorder</code> 保证为二叉树的中序遍历序列。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>示例 1：</li>
+</ul>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg" alt="img" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: preorder = [<span class="number">3</span>,<span class="number">9</span>,<span class="number">20</span>,<span class="number">15</span>,<span class="number">7</span>], inorder = [<span class="number">9</span>,<span class="number">3</span>,<span class="number">15</span>,<span class="number">20</span>,<span class="number">7</span>]</span><br><span class="line">输出: [<span class="number">3</span>,<span class="number">9</span>,<span class="number">20</span>,null,null,<span class="number">15</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例 2：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: preorder = [-<span class="number">1</span>], inorder = [-<span class="number">1</span>]</span><br><span class="line">输出: [-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
+<h3 id="思路-1递归遍历"><a class="markdownIt-Anchor" href="#思路-1递归遍历"></a> 思路 1：递归遍历</h3>
+<p>前序遍历的顺序是：根 -&gt; 左 -&gt; 右。中序遍历的顺序是：左 -&gt; 根 -&gt; 右。根据前序遍历的顺序，可以找到根节点位置。然后在中序遍历的结果中可以找到对应的根节点位置，就可以从根节点位置将二叉树分割成左子树、右子树。同时能得到左右子树的节点个数。此时构建当前节点，并递归建立左右子树，在左右子树对应位置继续递归遍历进行上述步骤，直到节点为空，具体操作步骤如下：</p>
+<ol>
+<li>从前序遍历顺序中当前根节点的位置在 <code>postorder[0]</code>。</li>
+<li>通过在中序遍历中查找上一步根节点对应的位置 <code>inorder[k]</code>，从而将二叉树的左右子树分隔开，并得到左右子树节点的个数。</li>
+<li>从上一步得到的左右子树个数将前序遍历结果中的左右子树分开。</li>
+<li>构建当前节点，并递归建立左右子树，在左右子树对应位置继续递归遍历并执行上述三步，直到节点为空。</li>
+</ol>
+<h3 id="思路-1复杂度分析"><a class="markdownIt-Anchor" href="#思路-1复杂度分析"></a> 思路 1：复杂度分析</h3>
+<ul>
+<li><strong>时间复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 是二叉树的节点数目。</li>
+<li><strong>空间复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。递归函数需要用到栈空间，栈空间取决于递归深度，最坏情况下递归深度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>，所以空间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">buildTree</span><span class="params">(preorder []<span class="type">int</span>, inorder []<span class="type">int</span>)</span></span> *TreeNode &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(preorder) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    root := &amp;TreeNode&#123;preorder[<span class="number">0</span>], <span class="literal">nil</span>, <span class="literal">nil</span>&#125;</span><br><span class="line">    i := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> ; i &lt; <span class="built_in">len</span>(inorder); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> inorder[i] == preorder[<span class="number">0</span>] &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    root.Left = buildTree(preorder[<span class="number">1</span>:<span class="built_in">len</span>(inorder[:i]) +<span class="number">1</span>], inorder[:i])</span><br><span class="line">    root.Right = buildTree(preorder[<span class="built_in">len</span>(inorder[:i])+<span class="number">1</span>:], inorder[i+<span class="number">1</span>:])</span><br><span class="line">    <span class="keyword">return</span> root</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1021,10 +1167,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-03-19 21:53:08 / Modified: 21:54:10" itemprop="dateCreated datePublished" datetime="2024-03-19T21:53:08+08:00">2024-03-19</time>
+              <time title="Created: 2024-03-19 21:53:08" itemprop="dateCreated datePublished" datetime="2024-03-19T21:53:08+08:00">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:41" itemprop="dateModified" datetime="2024-03-20T21:17:41+08:00">2024-03-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1076,7 +1228,7 @@
 </ul>
 <p>选择其中最大值。</p>
 <p>上述描述中，当前节点的选择来自于子节点信息的选择，然后逐层向上，直到根节点。所以我们使用「后序遍历」的方式进行递归遍历。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numTrees</span><span class="params">(n <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    res := <span class="built_in">make</span>([]<span class="type">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    res[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    res[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;=i; j ++ &#123;</span><br><span class="line">            res[i] += res[j<span class="number">-1</span>] * res[i - j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res[n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(root *TreeNode)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    res := dfs(root)</span><br><span class="line">    <span class="keyword">return</span> max(res[<span class="number">0</span>], res[<span class="number">1</span>]) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">dfs</span><span class="params">(root *TreeNode)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> []<span class="type">int</span>&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    l := dfs(root.Left)</span><br><span class="line">    r := dfs(root.Right)</span><br><span class="line">    <span class="comment">// 当前节点选择偷，最大金额 = 当前节点金额+左孩子选择不偷的最大金额 + 右孩子选择不偷的最大金额</span></span><br><span class="line">    selected := root.Val + l[<span class="number">1</span>] + r[<span class="number">1</span>]</span><br><span class="line">    <span class="comment">// 当前节点选择不偷，最大金额 = 左孩子能偷的最大金额 + 右孩子能偷的最大金额</span></span><br><span class="line">    notSelected := max(l[<span class="number">0</span>], l[<span class="number">1</span>]) + max(r[<span class="number">0</span>], r[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> []<span class="type">int</span>&#123;selected, notSelected&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a &gt; b &#123; <span class="keyword">return</span> a &#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
 
