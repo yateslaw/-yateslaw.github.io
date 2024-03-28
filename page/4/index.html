@@ -184,6 +184,142 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91/%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yateslaw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YatesLaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91/%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">翻转二叉树(easy)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-03-17 20:43:48" itemprop="dateCreated datePublished" datetime="2024-03-17T20:43:48+08:00">2024-03-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-18 23:54:39" itemprop="dateModified" datetime="2024-03-18T23:54:39+08:00">2024-03-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/invert-binary-tree/">0226. 翻转二叉树 - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p><strong>描述</strong>：给定一个二叉树的根节点 <code>root</code>。</p>
+<p><strong>要求</strong>：将该二叉树进行左右翻转。</p>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>树中节点数目范围在 [0, 100] 内。</li>
+<li>100 &lt;= Node.val &lt;=  100。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>示例 1：</li>
+</ul>
+<p><img src="https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">9</span>]</span><br><span class="line">输出：[<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例 2：</li>
+</ul>
+<p><img src="https://assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">输出：[<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
+<h3 id="思路-1递归遍历"><a class="markdownIt-Anchor" href="#思路-1递归遍历"></a> 思路 1：递归遍历</h3>
+<p>根据我们的递推三步走策略，写出对应的递归代码。</p>
+<ol>
+<li>
+<p>写出递推公式：</p>
+<ol>
+<li>递归遍历翻转左子树。</li>
+<li>递归遍历翻转右子树。</li>
+<li>交换当前根节点 <code>root</code> 的左右子树。</li>
+</ol>
+</li>
+<li>
+<p>明确终止条件：当前节点 <code>root</code> 为 <code>None</code>。</p>
+</li>
+<li>
+<p>翻译为递归代码：</p>
+<ol>
+<li>
+<p>定义递归函数：<code>invertTree(self, root)</code> 表示输入参数为二叉树的根节点 <code>root</code>，返回结果为翻转后二叉树的根节点。</p>
+</li>
+<li>
+<p>书写递归主体：</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">left := invertTree(root.Left)</span><br><span class="line">right := invertTree(root.Right)</span><br><span class="line">root.Left = right</span><br><span class="line">root.Right = left</span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>明确递归终止条件：</p>
+</li>
+</ol>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>返回根节点 <code>root</code>。</p>
+</li>
+</ol>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">invertTree</span><span class="params">(root *TreeNode)</span></span> *TreeNode &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    left := invertTree(root.Left)</span><br><span class="line">    right := invertTree(root.Right)</span><br><span class="line">    root.Left = right</span><br><span class="line">    root.Right = left</span><br><span class="line">    <span class="keyword">return</span> root</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -904,7 +1040,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

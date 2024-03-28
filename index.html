@@ -184,6 +184,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/28/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yateslaw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YatesLaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/28/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">乘积最大数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-03-28 23:20:40 / Modified: 23:35:43" itemprop="dateCreated datePublished" datetime="2024-03-28T23:20:40+08:00">2024-03-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">动态规划</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-product-subarray/">0152. 乘积最大子数组 - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p><strong>描述</strong>：给定一个整数数组 <code>nums</code>。</p>
+<p><strong>要求</strong>：找出数组中乘积最大的连续子数组（最少包含一个数字），并返回该子数组对应的乘积。</p>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>测试用例的答案是一个 32-位整数。</li>
+<li><strong>子数组</strong>：数组的连续子序列。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>≤</mo><mn>2</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">1 \le nums.length \le 2 * 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mord mathit">u</span><span class="mord mathit">m</span><span class="mord mathit">s</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mrel">≤</span><span class="mord mathrm">2</span><span class="mbin">∗</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn><mn>0</mn><mo>≤</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>≤</mo><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">-10 \le nums[i] \le 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mord mathit">u</span><span class="mord mathit">m</span><span class="mord mathit">s</span><span class="mopen">[</span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span>。</li>
+<li><code>nums</code> 的任何前缀或后缀的乘积都保证是一个 32-位整数。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>示例 1：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">2</span>,<span class="number">3</span>,-<span class="number">2</span>,<span class="number">4</span>]</span><br><span class="line">输出: <span class="number">6</span></span><br><span class="line">解释: 子数组 [<span class="number">2</span>,<span class="number">3</span>] 有最大乘积 <span class="number">6</span>。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例 2：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [-<span class="number">2</span>,<span class="number">0</span>,-<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">0</span></span><br><span class="line">解释: 结果不能为 <span class="number">2</span>, 因为 [-<span class="number">2</span>,-<span class="number">1</span>] 不是子数组。</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路：</h2>
+<p>该算法通过遍历整个数组，同时维护两个变量 <code>imax</code> 和 <code>imin</code> 来记录以当前元素结尾的最大乘积和最小乘积。</p>
+<p>当遇到负数时，会交换 <code>imax</code> 和 <code>imin</code> 的值。这是因为负数会导致最大的变最小的，最小的变最大的。这样交换保证了在遇到负数时乘积的正确性。</p>
+<p>在每次迭代中，更新 <code>imax</code> 和 <code>imin</code> 的值，分别记录以当前元素结尾的最大乘积和最小乘积。这里同时考虑了两种情况：</p>
+<ol>
+<li>当前元素与之前的最大乘积相乘得到新的最大乘积；</li>
+<li>当前元素自身就是最大乘积。</li>
+</ol>
+<p>同时，用 <code>max</code> 变量来记录全局的最大乘积，每次迭代更新 <code>max</code> 的值，保证其为全局最大乘积。</p>
+<p>最终返回 <code>max</code>，即为最大乘积。</p>
+<h3 id="思路-2复杂度分析"><a class="markdownIt-Anchor" href="#思路-2复杂度分析"></a> 思路 2：复杂度分析</h3>
+<p>这个算法的空间复杂度为O(1)，时间复杂度为O(n)，其中 n 是输入数组的长度。</p>
+<p><strong>空间复杂度</strong>：这个算法只使用了几个常量级别的额外空间，如 max, imax, 和 imin 等，因此空间复杂度为 O(1)。</p>
+<p><strong>时间复杂度</strong>：算法只需要一次线性遍历输入数组，每次遍历需要常量时间完成，没有嵌套循环或递归。因此，时间复杂度为 O(n)，其中 n 是输入数组的长度。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxProduct</span><span class="params">(nums []<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="comment">// 初始化全局最大乘积为整数最小值</span></span><br><span class="line">	max := math.MinInt64</span><br><span class="line">	<span class="comment">// 初始化局部最大乘积和最小乘积为1</span></span><br><span class="line">	imax, imin := <span class="number">1</span>, <span class="number">1</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 遍历整个数组</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">		<span class="comment">// 当遇到负数时，交换 imax 和 imin 的值</span></span><br><span class="line">		<span class="keyword">if</span> nums[i] &lt; <span class="number">0</span> &#123;</span><br><span class="line">			imax, imin = imin, imax</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 更新局部最大乘积和最小乘积</span></span><br><span class="line">		imax = maxInt(imax*nums[i], nums[i])</span><br><span class="line">		imin = minInt(imin*nums[i], nums[i])</span><br><span class="line">		<span class="comment">// 更新全局最大乘积</span></span><br><span class="line">		max = maxInt(max, imax)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> max</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回两个整数中的较大值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxInt</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回两个整数中的较小值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">minInt</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a &lt; b &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1258,105 +1367,6 @@ lRUCache.get(4);    // 返回 4
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/21/%E9%93%BE%E8%A1%A8/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yateslaw">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YatesLaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/21/%E9%93%BE%E8%A1%A8/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">排序链表</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-03-21 19:57:02 / Modified: 20:58:28" itemprop="dateCreated datePublished" datetime="2024-03-21T19:57:02+08:00">2024-03-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/" itemprop="url" rel="index"><span itemprop="name">链表</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-list/">0148. 排序链表 - 力扣</a></li>
-</ul>
-<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
-<p><strong>描述</strong>：给定链表的头节点 <code>head</code>。</p>
-<p><strong>要求</strong>：按照升序排列并返回排序后的链表。</p>
-<p><strong>说明</strong>：</p>
-<ul>
-<li>链表中节点的数目在范围 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>0</mn><mo separator="true">,</mo><mn>5</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup><mo>]</mo></mrow><annotation encoding="application/x-tex">[0, 5 * 10^4]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">5</span><span class="mbin">∗</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">]</span></span></span></span> 内。</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup><mo>≤</mo><mi>N</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">-10^5 \le Node.val \le 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit">o</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</li>
-</ul>
-<p><strong>示例</strong>：</p>
-<ul>
-<li>示例 1：</li>
-</ul>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/14/sort_list_1.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例 2：</li>
-</ul>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/14/sort_list_2.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [-<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">0</span>]</span><br><span class="line">输出：[-<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="思路一自顶向下归并排序"><a class="markdownIt-Anchor" href="#思路一自顶向下归并排序"></a> 思路一：自顶向下归并排序</h2>
-<p>对链表自顶向下归并排序的过程如下。<br />
-1、找到链表的中点，以中点为分界，将链表拆分成两个子链表。寻找链表的中点可以使用快慢指针的做法，快指针每次移动 2步，慢指针每次移动 1步，当快指针到达链表末尾时，慢指针指向的链表节点即为链表的中点。<br />
-2、对两个子链表分别排序。<br />
-3、将两个排序后的子链表合并，得到完整的排序后的链表。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sortList</span><span class="params">(head *ListNode)</span></span> *ListNode &#123;</span><br><span class="line">    <span class="keyword">if</span> head == <span class="literal">nil</span> || head.Next == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> head</span><br><span class="line">    &#125;</span><br><span class="line">    slow := head</span><br><span class="line">    fast := head.Next</span><br><span class="line">    <span class="keyword">for</span> fast != <span class="literal">nil</span> &amp;&amp; fast.Next != <span class="literal">nil</span> &#123;</span><br><span class="line">        slow = slow.Next</span><br><span class="line">        fast = fast.Next.Next</span><br><span class="line">    &#125;</span><br><span class="line">    mid := slow.Next</span><br><span class="line">    slow.Next = <span class="literal">nil</span></span><br><span class="line">    left := sortList(head)</span><br><span class="line">    right := sortList(mid)</span><br><span class="line">    <span class="keyword">return</span> mergeTwoLists(left, right)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mergeTwoLists</span><span class="params">(list1 *ListNode, list2 *ListNode)</span></span> *ListNode &#123;</span><br><span class="line">    dummy := &amp;ListNode&#123;</span><br><span class="line">        Val: <span class="number">-1</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    cur := dummy</span><br><span class="line">    <span class="keyword">for</span> list1 != <span class="literal">nil</span> &amp;&amp; list2 != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> list1.Val &lt;= list2.Val &#123;</span><br><span class="line">            cur.Next = list1</span><br><span class="line">            list1 = list1.Next</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cur.Next = list2</span><br><span class="line">            list2 = list2.Next</span><br><span class="line">        &#125;</span><br><span class="line">        cur = cur.Next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> list1 != <span class="literal">nil</span> &#123;</span><br><span class="line">        cur.Next = list1</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">if</span> list2 != <span class="literal">nil</span> &#123;</span><br><span class="line">        cur.Next = list2</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.Next</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1426,7 +1436,7 @@ lRUCache.get(4);    // 返回 4
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
