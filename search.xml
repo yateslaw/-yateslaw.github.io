@@ -1589,19 +1589,19 @@ lRUCache.get(4);    // 返回 4
   <entry>
     <title>乘积最大数组</title>
     <url>/2024/03/28/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+    <content><![CDATA[<h2 id="题目链接">题目链接</h2>
 <ul>
 <li><a href="https://leetcode.cn/problems/maximum-product-subarray/">0152. 乘积最大子数组 - 力扣</a></li>
 </ul>
-<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<h2 id="题目大意">题目大意</h2>
 <p><strong>描述</strong>：给定一个整数数组 <code>nums</code>。</p>
 <p><strong>要求</strong>：找出数组中乘积最大的连续子数组（最少包含一个数字），并返回该子数组对应的乘积。</p>
 <p><strong>说明</strong>：</p>
 <ul>
 <li>测试用例的答案是一个 32-位整数。</li>
 <li><strong>子数组</strong>：数组的连续子序列。</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>≤</mo><mn>2</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">1 \le nums.length \le 2 * 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mord mathit">u</span><span class="mord mathit">m</span><span class="mord mathit">s</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mrel">≤</span><span class="mord mathrm">2</span><span class="mbin">∗</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn><mn>0</mn><mo>≤</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>≤</mo><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">-10 \le nums[i] \le 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mord mathit">u</span><span class="mord mathit">m</span><span class="mord mathit">s</span><span class="mopen">[</span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span>。</li>
+<li>$1 \le nums.length \le 2 * 10^4$。</li>
+<li>$-10 \le nums[i] \le 10$。</li>
 <li><code>nums</code> 的任何前缀或后缀的乘积都保证是一个 32-位整数。</li>
 </ul>
 <p><strong>示例</strong>：</p>
@@ -1613,7 +1613,7 @@ lRUCache.get(4);    // 返回 4
 <li>示例 2：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">输入: nums = [-<span class="number">2</span>,<span class="number">0</span>,-<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">0</span></span><br><span class="line">解释: 结果不能为 <span class="number">2</span>, 因为 [-<span class="number">2</span>,-<span class="number">1</span>] 不是子数组。</span><br></pre></td></tr></table></figure>
-<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路：</h2>
+<h2 id="解题思路：">解题思路：</h2>
 <p>该算法通过遍历整个数组，同时维护两个变量 <code>imax</code> 和 <code>imin</code> 来记录以当前元素结尾的最大乘积和最小乘积。</p>
 <p>当遇到负数时，会交换 <code>imax</code> 和 <code>imin</code> 的值。这是因为负数会导致最大的变最小的，最小的变最大的。这样交换保证了在遇到负数时乘积的正确性。</p>
 <p>在每次迭代中，更新 <code>imax</code> 和 <code>imin</code> 的值，分别记录以当前元素结尾的最大乘积和最小乘积。这里同时考虑了两种情况：</p>
@@ -1623,7 +1623,7 @@ lRUCache.get(4);    // 返回 4
 </ol>
 <p>同时，用 <code>max</code> 变量来记录全局的最大乘积，每次迭代更新 <code>max</code> 的值，保证其为全局最大乘积。</p>
 <p>最终返回 <code>max</code>，即为最大乘积。</p>
-<h3 id="思路-2复杂度分析"><a class="markdownIt-Anchor" href="#思路-2复杂度分析"></a> 思路 2：复杂度分析</h3>
+<h3 id="复杂度分析">复杂度分析</h3>
 <p>这个算法的空间复杂度为O(1)，时间复杂度为O(n)，其中 n 是输入数组的长度。</p>
 <p><strong>空间复杂度</strong>：这个算法只使用了几个常量级别的额外空间，如 max, imax, 和 imin 等，因此空间复杂度为 O(1)。</p>
 <p><strong>时间复杂度</strong>：算法只需要一次线性遍历输入数组，每次遍历需要常量时间完成，没有嵌套循环或递归。因此，时间复杂度为 O(n)，其中 n 是输入数组的长度。</p>
