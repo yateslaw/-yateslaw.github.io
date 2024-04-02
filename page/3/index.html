@@ -184,6 +184,204 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%89%91%E6%8C%87-Offer-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84-mid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yateslaw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YatesLaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%89%91%E6%8C%87-Offer-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84-mid/" class="post-title-link" itemprop="url">剑指 Offer 26. 树的子结构 (mid)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-03-19 22:16:42" itemprop="dateCreated datePublished" datetime="2024-03-19T22:16:42+08:00">2024-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-21 20:59:19" itemprop="dateModified" datetime="2024-03-21T20:59:19+08:00">2024-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/">剑指 Offer 26. 树的子结构 - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p>给定两棵二叉树的根节点 <code>A</code>、<code>B</code>。</p>
+<p>要求：判断 <code>B</code> 是不是 <code>A</code> 的子结构。（空树不是任意一棵树的子结构）。</p>
+<ul>
+<li><code>B</code> 是 <code>A</code> 的子结构：<code>A</code> 中有出现和 <code>B</code> 相同的结构和节点值。</li>
+</ul>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
+<p>深度优先搜索。</p>
+<ul>
+<li>先判断特例，如果 <code>A</code>、<code>B</code> 都为空树，则直接返回 <code>False</code>。</li>
+<li>然后递归判断 <code>A</code>、<code>B</code> 是否相等。
+<ul>
+<li>如果 <code>A</code>、<code>B</code> 相等，则返回 <code>True</code>。</li>
+<li>如果 <code>A</code>、<code>B</code> 不相等，则递归判断 <code>B</code> 是否是  <code>A</code> 的左子树的子结构，或者 <code>B</code> 是否是 <code>A</code> 的右子树的子结构，如果有一种满足，则返回 <code>True</code>，如果都不满足，则返回 <code>False</code>。</li>
+</ul>
+</li>
+</ul>
+<p>递归判断 <code>A</code>、<code>B</code> 是否相等的具体方法如下：</p>
+<ul>
+<li>如果 <code>B</code> 为空树，则直接返回 <code>False</code>，因为空树不是任意一棵树的子结构。</li>
+<li>如果 <code>A</code> 为空树或者 <code>A</code> 节点的值不等于 <code>B</code> 节点的值，则返回 <code>False</code>。</li>
+<li>如果 <code>A</code>、<code>B</code> 都不为空，且节点值相同，则递归判断 <code>A</code> 的左子树和 <code>B</code> 的左子树是否相等，判断 <code>A</code> 的右子树和 <code>B</code> 的右子树是否相等。如果都相等，则返回 <code>True</code>，否则返回 <code>False</code>。</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    参考:数据结构与算法的题解比较好懂</span></span><br><span class="line"><span class="comment">    死死记住isSubStructure()的定义:判断B是否为A的子结构</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubStructure</span><span class="params">(A *TreeNode, B *TreeNode)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="comment">// 若A与B其中一个为空,立即返回false</span></span><br><span class="line">    <span class="keyword">if</span> A == <span class="literal">nil</span> || B == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// B为A的子结构有3种情况,满足任意一种即可:</span></span><br><span class="line">    <span class="comment">// 1.B的子结构起点为A的根节点,此时结果为recur(A,B)</span></span><br><span class="line">    <span class="comment">// 2.B的子结构起点隐藏在A的左子树中,而不是直接为A的根节点,此时结果为isSubStructure(A.left, B)</span></span><br><span class="line">    <span class="comment">// 3.B的子结构起点隐藏在A的右子树中,此时结果为isSubStructure(A.right, B)</span></span><br><span class="line">    <span class="keyword">return</span> recur(A, B) || isSubStructure(A.Left, B) || isSubStructure(A.Right, B)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">    判断B是否为A的子结构,其中B子结构的起点为A的根节点</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">recur</span><span class="params">(A *TreeNode, B *TreeNode)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="comment">// 若B走完了,说明查找完毕,B为A的子结构</span></span><br><span class="line">    <span class="keyword">if</span> B == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若B不为空并且A为空或者A与B的值不相等,直接可以判断B不是A的子结构</span></span><br><span class="line">    <span class="keyword">if</span> A == <span class="literal">nil</span> || A.Val != B.Val&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当A与B当前节点值相等,若要判断B为A的子结构</span></span><br><span class="line">    <span class="comment">// 还需要判断B的左子树是否为A左子树的子结构 &amp;&amp; B的右子树是否为A右子树的子结构</span></span><br><span class="line">    <span class="comment">// 若两者都满足就说明B是A的子结构,并且该子结构以A根节点为起点</span></span><br><span class="line">    <span class="keyword">return</span> recur(A.Left, B.Left) &amp;&amp; recur(A.Right, B.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yateslaw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YatesLaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/" class="post-title-link" itemprop="url">把二叉搜索树转换为累加树(mid)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-03-19 22:14:58" itemprop="dateCreated datePublished" datetime="2024-03-19T22:14:58+08:00">2024-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-03-20 21:17:02" itemprop="dateModified" datetime="2024-03-20T21:17:02+08:00">2024-03-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-bst-to-greater-tree/">0538. 把二叉搜索树转换为累加树 - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p>给定一棵二叉搜索树（BST）的根节点，且二叉搜索树的节点值各不相同。要求将其转化为「累加树」，使其每个节点 <code>node</code> 的新值等于原树中大于或等于 <code>node.val</code> 的值之和。</p>
+<p>二叉搜索树的定义：</p>
+<ul>
+<li>若左子树不为空，则左子树上所有节点值均小于它的根节点值；</li>
+<li>若右子树不为空，则右子树上所有节点值均大于它的根节点值；</li>
+<li>任意节点的左、右子树也分别为二叉搜索树。</li>
+</ul>
+<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
+<p>题目要求将每个节点的值修改为原来的节点值加上大于它的节点值之和。已知二叉搜索树的中序遍历可以得到一个升序数组。</p>
+<p>题目就可以变为：修改升序数组中每个节点值为末尾元素累加和。由于末尾元素累加和的求和过程和遍历顺序相反，所以我们可以考虑换种思路。</p>
+<p>二叉搜索树的中序遍历顺序为：左 -&gt; 根 -&gt; 右，从而可以得到一个升序数组，那么我们将左右反着遍历，即顺序为：右 -&gt; 根 -&gt; 左，就可以得到一个降序数组，这样就可以在遍历的同时求前缀和。</p>
+<p>当然我们在计算前缀和的时候，需要用到前一个节点的值，所以需要用变量 <code>pre</code> 存储前一节点的值。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">convertBST</span><span class="params">(root *TreeNode)</span></span> *TreeNode &#123;</span><br><span class="line">    sum := <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> dfs <span class="function"><span class="keyword">func</span><span class="params">(*TreeNode)</span></span></span><br><span class="line">    dfs = <span class="function"><span class="keyword">func</span><span class="params">(node *TreeNode)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">            dfs(node.Right)</span><br><span class="line">            sum += node.Val</span><br><span class="line">            node.Val = sum</span><br><span class="line">            dfs(node.Left)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root)</span><br><span class="line">    <span class="keyword">return</span> root</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86-easy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1086,227 +1284,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/18/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yateslaw">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YatesLaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/18/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="post-title-link" itemprop="url">二叉树的最近公共祖先(mid)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-03-18 23:20:02" itemprop="dateCreated datePublished" datetime="2024-03-18T23:20:02+08:00">2024-03-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-21 20:59:04" itemprop="dateModified" datetime="2024-03-21T20:59:04+08:00">2024-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/">二叉树的最近公共祖先</a></p>
-<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
-<p><strong>描述</strong>：给定一个二叉树的根节点 <code>root</code>，以及二叉树中两个节点 <code>p</code> 和 <code>q</code>。</p>
-<p><strong>要求</strong>：找到该二叉树中指定节点 <code>p</code>、<code>q</code> 的最近公共祖先。</p>
-<p><strong>说明</strong>：</p>
-<ul>
-<li><strong>祖先</strong>：如果节点 <code>p</code> 在节点 <code>node</code> 的左子树或右子树中，或者 <code>p == node</code>，则称 <code>node</code> 是 <code>p</code> 的祖先。</li>
-<li><strong>最近公共祖先</strong>：对于树的两个节点 <code>p</code>、<code>q</code>，最近公共祖先表示为一个节点 <code>lca_node</code>，满足 <code>lca_node</code> 是 <code>p</code>、<code>q</code> 的祖先且 <code>lca_node</code> 的深度尽可能大（一个节点也可以是自己的祖先）。</li>
-<li>树中节点数目在范围 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>2</mn><mo separator="true">,</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup><mo>]</mo></mrow><annotation encoding="application/x-tex">[2, 10^5]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">]</span></span></span></span> 内。</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mo>≤</mo><mi>N</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">-10^9 \le Node.val \le 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit">o</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</li>
-<li>所有 <code>Node.val</code> 互不相同。</li>
-<li><code>p != q</code>。</li>
-<li><code>p</code> 和 <code>q</code> 均存在于给定的二叉树中。</li>
-</ul>
-<p><strong>示例</strong>：</p>
-<ul>
-<li>示例 1：</li>
-</ul>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">8</span>,null,null,<span class="number">7</span>,<span class="number">4</span>], p = <span class="number">5</span>, q = <span class="number">1</span></span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：节点 <span class="number">5</span> 和节点 <span class="number">1</span> 的最近公共祖先是节点 <span class="number">3</span> 。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例 2：</li>
-</ul>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">8</span>,null,null,<span class="number">7</span>,<span class="number">4</span>], p = <span class="number">5</span>, q = <span class="number">4</span></span><br><span class="line">输出：<span class="number">5</span></span><br><span class="line">解释：节点 <span class="number">5</span> 和节点 <span class="number">4</span> 的最近公共祖先是节点 <span class="number">5</span> 。因为根据定义最近公共祖先节点可以为节点本身。</span><br></pre></td></tr></table></figure>
-<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
-<p>设 <code>lca_node</code> 为节点 <code>p</code>、<code>q</code> 的最近公共祖先。则 <code>lca_node</code> 只能是下面几种情况：</p>
-<ul>
-<li><code>p</code>、<code>q</code>  在 <code>lca_node</code> 的子树中，且分别在 <code>lca_node</code> 的两侧子树中。</li>
-<li><code>p = lca_node</code>，且 <code>q</code> 在 <code>lca_node</code> 的左子树或右子树中。</li>
-<li><code>q = lca_node</code>，且 <code>p</code> 在 <code>lca_node</code> 的左子树或右子树中。</li>
-</ul>
-<p>下面递归求解 <code>lca_node</code>。递归需要满足以下条件：</p>
-<ul>
-<li>如果 <code>p</code>、<code>q</code> 都不为空，则返回 <code>p</code>、<code>q</code> 的公共祖先。</li>
-<li>如果 <code>p</code>、<code>q</code> 只有一个存在，则返回存在的一个。</li>
-<li>如果 <code>p</code>、<code>q</code> 都不存在，则返回存在的一个。</li>
-</ul>
-<p>具体思路为：</p>
-<ul>
-<li>如果当前节点 <code>node</code> 为 <code>None</code>，则说明 <code>p</code>、<code>q</code> 不在 <code>node</code> 的子树中，不可能为公共祖先，直接返回 <code>None</code>。</li>
-<li>如果当前节点 <code>node</code> 等于 <code>p</code> 或者 <code>q</code>，那么 <code>node</code> 就是 <code>p</code>、<code>q</code> 的最近公共祖先，直接返回 <code>node</code></li>
-<li>递归遍历左子树、右子树，并判断左右子树结果。
-<ul>
-<li>如果左子树为空，则返回右子树。</li>
-<li>如果右子树为空，则返回左子树。</li>
-<li>如果左右子树都不为空，则说明 <code>p</code>、<code>q</code> 在当前根节点的两侧，当前根节点就是他们的最近公共祖先。</li>
-<li>如果左右子树都为空，则返回空。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">lowestCommonAncestor</span><span class="params">(root, p, q *TreeNode)</span></span> *TreeNode &#123;</span><br><span class="line">      <span class="comment">//只要当前根节点是p和q中的任意一个，就返回（因为不能比这个更深了，再深p和q中的一个就没了）</span></span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> || root == p || root == q &#123;</span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//根节点不是p和q中的任意一个，那么就继续分别往左子树和右子树找p和q</span></span><br><span class="line">    left := lowestCommonAncestor(root.Left, p, q)</span><br><span class="line">    right := lowestCommonAncestor(root.Right, p, q)</span><br><span class="line">    <span class="comment">//p和q都没找到，那就没有</span></span><br><span class="line">    <span class="keyword">if</span> left == <span class="literal">nil</span> &amp;&amp; right == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//左子树没有p也没有q，就返回右子树的结果</span></span><br><span class="line">    <span class="keyword">if</span> left == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> right</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//右子树没有p也没有q就返回左子树的结果</span></span><br><span class="line">    <span class="keyword">if</span> right == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> left</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//左右子树都找到p和q了，那就说明p和q分别在左右两个子树上，所以此时的最近公共祖先就是root</span></span><br><span class="line">    <span class="keyword">return</span> root</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/18/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yateslaw">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YatesLaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/18/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" class="post-title-link" itemprop="url">二叉树的最大深度(easy)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-03-18 23:18:01" itemprop="dateCreated datePublished" datetime="2024-03-18T23:18:01+08:00">2024-03-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-21 20:59:01" itemprop="dateModified" datetime="2024-03-21T20:59:01+08:00">2024-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree//">二叉树的最大深度</a></p>
-<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
-<p><strong>描述</strong>：给定一个二叉树的根节点 <code>root</code>。</p>
-<p><strong>要求</strong>：找出该二叉树的最大深度。</p>
-<p><strong>说明</strong>：</p>
-<ul>
-<li><strong>二叉树的深度</strong>：根节点到最远叶子节点的最长路径上的节点数。</li>
-<li><strong>叶子节点</strong>：没有子节点的节点。</li>
-</ul>
-<p><strong>示例</strong>：</p>
-<ul>
-<li>示例 1：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：[<span class="number">3</span>,<span class="number">9</span>,<span class="number">20</span>,null,null,<span class="number">15</span>,<span class="number">7</span>]</span><br><span class="line">对应二叉树</span><br><span class="line">            <span class="number">3</span></span><br><span class="line">           / \</span><br><span class="line">          <span class="number">9</span>  <span class="number">20</span></span><br><span class="line">            /  \</span><br><span class="line">           <span class="number">15</span>   <span class="number">7</span></span><br><span class="line">输出：<span class="number">3</span></span><br><span class="line">解释：该二叉树的最大深度为 <span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p><strong>思路：</strong></p>
-<p>如果我们知道了左子树和右子树的最大深度 l 和 r，那么该二叉树的最大深度即为max(l,r)+1.</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxDepth</span><span class="params">(root *TreeNode)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    left := maxDepth(root.Left)</span><br><span class="line">    right := maxDepth(root.Right)</span><br><span class="line">    <span class="keyword">return</span> max(left, right) + <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a &gt; b &#123; <span class="keyword">return</span> a &#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1376,7 +1353,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -184,6 +184,233 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/21/%E9%93%BE%E8%A1%A8/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yateslaw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YatesLaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/21/%E9%93%BE%E8%A1%A8/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-II/" class="post-title-link" itemprop="url">环形链表 II</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-03-21 20:05:44 / Modified: 20:58:31" itemprop="dateCreated datePublished" datetime="2024-03-21T20:05:44+08:00">2024-03-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/" itemprop="url" rel="index"><span itemprop="name">链表</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle-ii/">0142. 环形链表 II - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p><strong>描述</strong>：给定一个链表的头节点 <code>head</code>。</p>
+<p><strong>要求</strong>：判断链表中是否有环，如果有环则返回入环的第一个节点，无环则返回 <code>None</code>。</p>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>链表中节点的数目范围在范围 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup><mo>]</mo></mrow><annotation encoding="application/x-tex">[0, 10^4]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">]</span></span></span></span> 内。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup><mo>≤</mo><mi>N</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">-10^5 \le Node.val \le 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit">o</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</li>
+<li><code>pos</code> 的值为 <code>-1</code> 或者链表中的一个有效索引。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>示例 1：</li>
+</ul>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>,-<span class="number">4</span>], pos = <span class="number">1</span></span><br><span class="line">输出：返回索引为 <span class="number">1</span> 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例 2：</li>
+</ul>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [<span class="number">1</span>,<span class="number">2</span>], pos = <span class="number">0</span></span><br><span class="line">输出：返回索引为 <span class="number">0</span> 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
+<h2 id="思路1哈希表"><a class="markdownIt-Anchor" href="#思路1哈希表"></a> 思路1：哈希表</h2>
+<p>一个非常直观的思路是：我们遍历链表中的每个节点，并将它记录下来；一旦遇到了此前遍历过的节点，就可以判定链表中存在环。借助哈希表可以很方便地实现。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">detectCycle</span><span class="params">(head *ListNode)</span></span> *ListNode &#123;</span><br><span class="line">    seen := <span class="keyword">map</span>[*ListNode]<span class="keyword">struct</span>&#123;&#125;&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> head != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> _, ok := seen[head]; ok &#123;</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        &#125;</span><br><span class="line">        seen[head] = <span class="keyword">struct</span>&#123;&#125;&#123;&#125;</span><br><span class="line">        head = head.Next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="思路-2快慢指针floyd-判圈算法"><a class="markdownIt-Anchor" href="#思路-2快慢指针floyd-判圈算法"></a> 思路 2：快慢指针（Floyd 判圈算法）</h3>
+<ol>
+<li>利用两个指针，一个慢指针 <code>slow</code> 每次前进一步，快指针 <code>fast</code> 每次前进两步（两步或多步效果是等价的）。</li>
+<li>如果两个指针在链表头节点以外的某一节点相遇（即相等）了，那么说明链表有环。</li>
+<li>否则，如果（快指针）到达了某个没有后继指针的节点时，那么说明没环。</li>
+<li>如果有环，则再定义一个指针 <code>ans</code>，和慢指针一起每次移动一步，两个指针相遇的位置即为入口节点。</li>
+</ol>
+<p>这是因为：假设入环位置为 <code>A</code>，快慢指针在 <code>B</code> 点相遇，则相遇时慢指针走了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a + b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathit">b</span></span></span></span> 步，快指针走了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>+</mo><mi>n</mi><mo>(</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo>)</mo><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a + n(b+c) + b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">b</span><span class="mbin">+</span><span class="mord mathit">c</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit">b</span></span></span></span> 步。</p>
+<p>因为快指针总共走的步数是慢指针走的步数的两倍，即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>=</mo><mi>a</mi><mo>+</mo><mi>n</mi><mo>(</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo>)</mo><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">2(a + b) = a + n(b + c) + b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mopen">(</span><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit">a</span><span class="mbin">+</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit">b</span><span class="mbin">+</span><span class="mord mathit">c</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit">b</span></span></span></span>，所以可以推出：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>=</mo><mi>c</mi><mo>+</mo><mo>(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo><mo>(</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">a = c + (n-1)(b + c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mrel">=</span><span class="mord mathit">c</span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathit">b</span><span class="mbin">+</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span></span>。</p>
+<p>我们可以发现：从相遇点到入环点的距离 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span></span></span></span> 加上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 圈的环长 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">b + c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span><span class="mbin">+</span><span class="mord mathit">c</span></span></span></span> 刚好等于从链表头部到入环点的距离。</p>
+<h3 id="思路-2复杂度分析"><a class="markdownIt-Anchor" href="#思路-2复杂度分析"></a> 思路 2：复杂度分析</h3>
+<ul>
+<li><strong>时间复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span>。</li>
+<li><strong>空间复杂度</strong>：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">detectCycle</span><span class="params">(head *ListNode)</span></span> *ListNode &#123;</span><br><span class="line">    <span class="comment">// 初始化快慢指针，快指针每次走两步，慢指针每次走一步</span></span><br><span class="line">    fast, slow := head, head</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        <span class="comment">// 若快指针或快指针的下一个节点为空，说明不存在环，直接返回nil</span></span><br><span class="line">        <span class="keyword">if</span> fast == <span class="literal">nil</span> || fast.Next == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 快指针走两步，慢指针走一步</span></span><br><span class="line">        fast = fast.Next.Next</span><br><span class="line">        slow = slow.Next</span><br><span class="line">        <span class="comment">// 若快慢指针相遇，说明存在环，跳出循环</span></span><br><span class="line">        <span class="keyword">if</span> fast == slow &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从链表头重新开始遍历，直到与慢指针相遇</span></span><br><span class="line">    ans := head</span><br><span class="line">    <span class="keyword">for</span> ans != slow &#123;</span><br><span class="line">        ans, slow = ans.Next, slow.Next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回环的起始节点</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/21/%E9%93%BE%E8%A1%A8/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yateslaw">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YatesLaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/21/%E9%93%BE%E8%A1%A8/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">相交链表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-03-21 19:59:14 / Modified: 20:58:36" itemprop="dateCreated datePublished" datetime="2024-03-21T19:59:14+08:00">2024-03-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/" itemprop="url" rel="index"><span itemprop="name">链表</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">0160. 相交链表 - 力扣</a></li>
+</ul>
+<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
+<p><strong>描述</strong>：给定 <code>listA</code>、<code>listB</code> 两个链表。</p>
+<p><strong>要求</strong>：判断两个链表是否相交，返回相交的起始点。如果不相交，则返回 <code>None</code>。</p>
+<p><strong>说明</strong>：</p>
+<ul>
+<li><code>listA</code> 中节点数目为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span>。</li>
+<li><code>listB</code> 中节点数目为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>m</mi><mo separator="true">,</mo><mi>n</mi><mo>≤</mo><mn>3</mn><mo>∗</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">1 \le m, n \le 3 * 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">m</span><span class="mpunct">,</span><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">3</span><span class="mbin">∗</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>N</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">1 \le Node.val \le 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit">o</span><span class="mord mathit">d</span><span class="mord mathit">e</span><span class="mord mathrm">.</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><mi>s</mi><mi>k</mi><mi>i</mi><mi>p</mi><mi>A</mi><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">0 \le skipA \le m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">s</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord mathit">i</span><span class="mord mathit">p</span><span class="mord mathit">A</span><span class="mrel">≤</span><span class="mord mathit">m</span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><mi>s</mi><mi>k</mi><mi>i</mi><mi>p</mi><mi>B</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0 \le skipB \le n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord mathit">s</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord mathit">i</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mrel">≤</span><span class="mord mathit">n</span></span></span></span>。</li>
+<li>如果 <code>listA</code> 和 <code>listB</code> 没有交点，<code>intersectVal</code> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span>。</li>
+<li>如果 <code>listA</code> 和 <code>listB</code> 有交点，<code>intersectVal == listA[skipA] == listB[skipB]</code>。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>示例 1：</li>
+</ul>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：intersectVal = <span class="number">8</span>, listA = [<span class="number">4</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">5</span>], listB = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">5</span>], skipA = <span class="number">2</span>, skipB = <span class="number">3</span></span><br><span class="line">输出：Intersected at <span class="string">&#x27;8&#x27;</span></span><br><span class="line">解释：相交节点的值为 <span class="number">8</span> （注意，如果两个链表相交则不能为 <span class="number">0</span>）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [<span class="number">4</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">5</span>]，链表 B 为 [<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">5</span>]。</span><br><span class="line">在 A 中，相交节点前有 <span class="number">2</span> 个节点；在 B 中，相交节点前有 <span class="number">3</span> 个节点。</span><br><span class="line">— 请注意相交节点的值不为 <span class="number">1</span>，因为在链表 A 和链表 B 之中值为 <span class="number">1</span> 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 <span class="number">8</span> 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例 2：</li>
+</ul>
+<p><img src="https://assets.leetcode.com/uploads/2021/03/05/160_example_2.png" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：intersectVal = <span class="number">2</span>, listA = [<span class="number">1</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>], listB = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>], skipA = <span class="number">3</span>, skipB = <span class="number">1</span></span><br><span class="line">输出：Intersected at <span class="string">&#x27;2&#x27;</span></span><br><span class="line">解释：相交节点的值为 <span class="number">2</span> （注意，如果两个链表相交则不能为 <span class="number">0</span>）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [<span class="number">1</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>]，链表 B 为 [<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>]。</span><br><span class="line">在 A 中，相交节点前有 <span class="number">3</span> 个节点；在 B 中，相交节点前有 <span class="number">1</span> 个节点。</span><br></pre></td></tr></table></figure>
+<h2 id="解法一哈希集合"><a class="markdownIt-Anchor" href="#解法一哈希集合"></a> 解法一：哈希集合</h2>
+<p>判断两个链表是否相交，可以使用哈希集合存储链表节点。<br />
+1、首先遍历链表 headA，并将链表 headA 中的每个节点加入哈希集合中。然后遍历链表 headB，对于遍历到的每个节点，判断该节点是否在哈希集合中：<br />
+2、如果当前节点不在哈希集合中，则继续遍历下一个节点；<br />
+3、如果当前节点在哈希集合中，则后面的节点都在哈希集合中，即从当前节点开始的所有节点都在两个链表的相交部分，因此在链表 headB 中遍历到的第一个在哈希集合中的节点就是两个链表相交的节点，返回该节点。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getIntersectionNode</span><span class="params">(headA, headB *ListNode)</span></span> *ListNode &#123;</span><br><span class="line">    <span class="comment">// 创建一个map用于存储已经遍历过的节点</span></span><br><span class="line">    nodeMap := <span class="built_in">make</span>(<span class="keyword">map</span>[*ListNode]<span class="type">bool</span>)</span><br><span class="line"></span><br><span class="line">    curA, curB := headA, headB</span><br><span class="line">    <span class="keyword">for</span> curA != <span class="literal">nil</span> || curB != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> curA != <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="comment">// 如果当前节点已经在map中，说明链表存在相交节点，返回该节点</span></span><br><span class="line">            <span class="keyword">if</span> nodeMap[curA] &#123;</span><br><span class="line">                <span class="keyword">return</span> curA</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 将当前节点加入map</span></span><br><span class="line">            nodeMap[curA] = <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 移动到下一个节点</span></span><br><span class="line">            curA = curA.Next</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> curB != <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="comment">// 如果当前节点已经在map中，说明链表存在相交节点，返回该节点</span></span><br><span class="line">            <span class="keyword">if</span> nodeMap[curB] &#123;</span><br><span class="line">                <span class="keyword">return</span> curB</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 将当前节点加入map</span></span><br><span class="line">            nodeMap[curB] = <span class="literal">true</span></span><br><span class="line">            <span class="comment">// 移动到下一个节点</span></span><br><span class="line">            curB = curB.Next</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若遍历完两个链表都没有找到相交节点，则返回nil</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法二双指针"><a class="markdownIt-Anchor" href="#解法二双指针"></a> 解法二：双指针</h3>
+<p>如果两个链表相交，那么从相交位置开始，到结束，必有一段等长且相同的节点。假设链表 <code>listA</code> 的长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span></span></span></span>、链表 <code>listB</code> 的长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>，他们的相交序列有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 个，则相交情况可以如下如所示：</p>
+<p><img src="https://qcdn.itcharge.cn/images/20210401113538.png" alt="" /></p>
+<p>现在问题是如何找到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>−</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">m - k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 或者 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">n - k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 的位置。</p>
+<p>考虑将链表 <code>listA</code> 的末尾拼接上链表 <code>listB</code>，链表 <code>listB</code> 的末尾拼接上链表 <code>listA</code>。</p>
+<p>然后使用两个指针 <code>pA</code> 、<code>pB</code>，分别从链表 <code>listA</code>、链表 <code>listB</code> 的头节点开始遍历，如果走到共同的节点，则返回该节点。</p>
+<p>否则走到两个链表末尾，返回 <code>None</code>。</p>
+<p><img src="https://qcdn.itcharge.cn/images/20210401114100.png" alt="" /></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getIntersectionNode</span><span class="params">(headA, headB *ListNode)</span></span> *ListNode &#123;</span><br><span class="line">    <span class="keyword">if</span> headA == <span class="literal">nil</span> || headB == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    pA, pB := headA, headB</span><br><span class="line">    <span class="keyword">for</span> pA != pB &#123;</span><br><span class="line">        <span class="keyword">if</span> pA != <span class="literal">nil</span> &#123;</span><br><span class="line">            pA = pA.Next</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            pA = headB</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> pB != <span class="literal">nil</span> &#123;</span><br><span class="line">            pB = pB.Next</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            pB = headA</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pA</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/21/%E9%93%BE%E8%A1%A8/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1075,204 +1302,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%89%91%E6%8C%87-Offer-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84-mid/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yateslaw">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YatesLaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%89%91%E6%8C%87-Offer-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84-mid/" class="post-title-link" itemprop="url">剑指 Offer 26. 树的子结构 (mid)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-03-19 22:16:42" itemprop="dateCreated datePublished" datetime="2024-03-19T22:16:42+08:00">2024-03-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-21 20:59:19" itemprop="dateModified" datetime="2024-03-21T20:59:19+08:00">2024-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/">剑指 Offer 26. 树的子结构 - 力扣</a></li>
-</ul>
-<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
-<p>给定两棵二叉树的根节点 <code>A</code>、<code>B</code>。</p>
-<p>要求：判断 <code>B</code> 是不是 <code>A</code> 的子结构。（空树不是任意一棵树的子结构）。</p>
-<ul>
-<li><code>B</code> 是 <code>A</code> 的子结构：<code>A</code> 中有出现和 <code>B</code> 相同的结构和节点值。</li>
-</ul>
-<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
-<p>深度优先搜索。</p>
-<ul>
-<li>先判断特例，如果 <code>A</code>、<code>B</code> 都为空树，则直接返回 <code>False</code>。</li>
-<li>然后递归判断 <code>A</code>、<code>B</code> 是否相等。
-<ul>
-<li>如果 <code>A</code>、<code>B</code> 相等，则返回 <code>True</code>。</li>
-<li>如果 <code>A</code>、<code>B</code> 不相等，则递归判断 <code>B</code> 是否是  <code>A</code> 的左子树的子结构，或者 <code>B</code> 是否是 <code>A</code> 的右子树的子结构，如果有一种满足，则返回 <code>True</code>，如果都不满足，则返回 <code>False</code>。</li>
-</ul>
-</li>
-</ul>
-<p>递归判断 <code>A</code>、<code>B</code> 是否相等的具体方法如下：</p>
-<ul>
-<li>如果 <code>B</code> 为空树，则直接返回 <code>False</code>，因为空树不是任意一棵树的子结构。</li>
-<li>如果 <code>A</code> 为空树或者 <code>A</code> 节点的值不等于 <code>B</code> 节点的值，则返回 <code>False</code>。</li>
-<li>如果 <code>A</code>、<code>B</code> 都不为空，且节点值相同，则递归判断 <code>A</code> 的左子树和 <code>B</code> 的左子树是否相等，判断 <code>A</code> 的右子树和 <code>B</code> 的右子树是否相等。如果都相等，则返回 <code>True</code>，否则返回 <code>False</code>。</li>
-</ul>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    参考:数据结构与算法的题解比较好懂</span></span><br><span class="line"><span class="comment">    死死记住isSubStructure()的定义:判断B是否为A的子结构</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubStructure</span><span class="params">(A *TreeNode, B *TreeNode)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="comment">// 若A与B其中一个为空,立即返回false</span></span><br><span class="line">    <span class="keyword">if</span> A == <span class="literal">nil</span> || B == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// B为A的子结构有3种情况,满足任意一种即可:</span></span><br><span class="line">    <span class="comment">// 1.B的子结构起点为A的根节点,此时结果为recur(A,B)</span></span><br><span class="line">    <span class="comment">// 2.B的子结构起点隐藏在A的左子树中,而不是直接为A的根节点,此时结果为isSubStructure(A.left, B)</span></span><br><span class="line">    <span class="comment">// 3.B的子结构起点隐藏在A的右子树中,此时结果为isSubStructure(A.right, B)</span></span><br><span class="line">    <span class="keyword">return</span> recur(A, B) || isSubStructure(A.Left, B) || isSubStructure(A.Right, B)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">    判断B是否为A的子结构,其中B子结构的起点为A的根节点</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">recur</span><span class="params">(A *TreeNode, B *TreeNode)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="comment">// 若B走完了,说明查找完毕,B为A的子结构</span></span><br><span class="line">    <span class="keyword">if</span> B == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若B不为空并且A为空或者A与B的值不相等,直接可以判断B不是A的子结构</span></span><br><span class="line">    <span class="keyword">if</span> A == <span class="literal">nil</span> || A.Val != B.Val&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当A与B当前节点值相等,若要判断B为A的子结构</span></span><br><span class="line">    <span class="comment">// 还需要判断B的左子树是否为A左子树的子结构 &amp;&amp; B的右子树是否为A右子树的子结构</span></span><br><span class="line">    <span class="comment">// 若两者都满足就说明B是A的子结构,并且该子结构以A根节点为起点</span></span><br><span class="line">    <span class="keyword">return</span> recur(A.Left, B.Left) &amp;&amp; recur(A.Right, B.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yateslaw">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YatesLaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/19/%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/" class="post-title-link" itemprop="url">把二叉搜索树转换为累加树(mid)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-03-19 22:14:58" itemprop="dateCreated datePublished" datetime="2024-03-19T22:14:58+08:00">2024-03-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 21:17:02" itemprop="dateModified" datetime="2024-03-20T21:17:02+08:00">2024-03-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">二叉树</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目链接"><a class="markdownIt-Anchor" href="#题目链接"></a> 题目链接</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-bst-to-greater-tree/">0538. 把二叉搜索树转换为累加树 - 力扣</a></li>
-</ul>
-<h2 id="题目大意"><a class="markdownIt-Anchor" href="#题目大意"></a> 题目大意</h2>
-<p>给定一棵二叉搜索树（BST）的根节点，且二叉搜索树的节点值各不相同。要求将其转化为「累加树」，使其每个节点 <code>node</code> 的新值等于原树中大于或等于 <code>node.val</code> 的值之和。</p>
-<p>二叉搜索树的定义：</p>
-<ul>
-<li>若左子树不为空，则左子树上所有节点值均小于它的根节点值；</li>
-<li>若右子树不为空，则右子树上所有节点值均大于它的根节点值；</li>
-<li>任意节点的左、右子树也分别为二叉搜索树。</li>
-</ul>
-<h2 id="解题思路"><a class="markdownIt-Anchor" href="#解题思路"></a> 解题思路</h2>
-<p>题目要求将每个节点的值修改为原来的节点值加上大于它的节点值之和。已知二叉搜索树的中序遍历可以得到一个升序数组。</p>
-<p>题目就可以变为：修改升序数组中每个节点值为末尾元素累加和。由于末尾元素累加和的求和过程和遍历顺序相反，所以我们可以考虑换种思路。</p>
-<p>二叉搜索树的中序遍历顺序为：左 -&gt; 根 -&gt; 右，从而可以得到一个升序数组，那么我们将左右反着遍历，即顺序为：右 -&gt; 根 -&gt; 左，就可以得到一个降序数组，这样就可以在遍历的同时求前缀和。</p>
-<p>当然我们在计算前缀和的时候，需要用到前一个节点的值，所以需要用变量 <code>pre</code> 存储前一节点的值。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">convertBST</span><span class="params">(root *TreeNode)</span></span> *TreeNode &#123;</span><br><span class="line">    sum := <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> dfs <span class="function"><span class="keyword">func</span><span class="params">(*TreeNode)</span></span></span><br><span class="line">    dfs = <span class="function"><span class="keyword">func</span><span class="params">(node *TreeNode)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> node != <span class="literal">nil</span> &#123;</span><br><span class="line">            dfs(node.Right)</span><br><span class="line">            sum += node.Val</span><br><span class="line">            node.Val = sum</span><br><span class="line">            dfs(node.Left)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root)</span><br><span class="line">    <span class="keyword">return</span> root</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1342,7 +1371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
